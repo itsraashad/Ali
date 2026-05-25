@@ -115,7 +115,7 @@ export default function ModernCVWebsite() {
 
 
               <a
-  href="tel:+971501234567"
+  href="tel:+971505023439"
   className="px-7 py-4 rounded-2xl border border-white/20 hover:bg-white/10 transition-all duration-300"
 >
   CONTACT ME
