@@ -315,7 +315,7 @@ Driven by precision, performance, and technical excellence, I am recognized for 
 
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="mailto:itsraashad@email.com"
+              href="mailto:itsraashad@gmail.com"
               className="px-7 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition-all duration-300"
             >
               Email Me
