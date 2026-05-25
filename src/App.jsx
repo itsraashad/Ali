@@ -88,7 +88,15 @@ export default function ModernCVWebsite() {
   transition={{ duration: 1 }}
   className="relative px-8 md:px-20 py-24 border-b border-white/10"
 >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 overflow-hidden">
+
+  <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse" />
+
+  <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[140px] animate-pulse" />
+
+  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+
+</div>
 
         <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
           <div>
