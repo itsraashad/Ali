@@ -108,7 +108,7 @@ export default function ModernCVWebsite() {
         <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
           <div>
             <p className="uppercase tracking-[0.3em] text-sm text-white/60 mb-6">
-              Personal Portfolio / CV
+              Personal Portfolio
             </p>
 
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
