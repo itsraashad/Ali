@@ -120,11 +120,11 @@ export default function ModernCVWebsite() {
     sequence={[
       "DM/DEWA-certified Electrical Engineer",
       2000,
-      "ELV & Security Systems Specialist",
+      "SIRA-certified Security Systems Engineer",
       2000,
-      "Project Engineer for Smart Buildings",
+      "ELV Systems Specialist",
       2000,
-      "SIRA-certified Systems Engineer",
+      "Electrical & ELV Project Engineer",
       2000,
     ]}
     wrapper="span"
