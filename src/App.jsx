@@ -1,4 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
+import { useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import expertiseImg from "./assets/ex.png";
 import westwoodImg from "./assets/westwood_by_imtiaz_1.jpg";
 import ellingtonImg from "./assets/ellington.png";
@@ -8,8 +10,9 @@ import westwoodMainImg from "./assets/westwood.png";
 import westwoodGrandeImg from "./assets/westwood-grande-by-imtiaz_mX7N7_xl.jpg";
 import myCV from "./assets/Ali_Mohamed_Rashad_Resume.pdf";
 import profilePic from "./assets/Rashad_Photo.JPG";
-import { motion } from "framer-motion";
 export default function ModernCVWebsite() {
+  const [darkMode, setDarkMode] = useState(true);
+  const { scrollYProgress } = useScroll();
   const skills = [
     "Leadership",
       "Electrical Engineering",
@@ -23,6 +26,15 @@ export default function ModernCVWebsite() {
       "Creative Strategy",
       "Project Management",
   ];
+
+const technicalSkills = [
+  { name: "Electrical Engineering", level: 95 },
+  { name: "ELV Systems", level: 95 },
+  { name: "CCTV Systems", level: 90 },
+  { name: "Access Control", level: 88 },
+  { name: "Structured Cabling", level: 92 },
+  { name: "AutoCAD", level: 90 },
+];
 
   const experiences = [
   {
@@ -81,9 +93,86 @@ export default function ModernCVWebsite() {
 ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
+    <>
+  <motion.div
+    className="fixed top-0 left-0 right-0 h-1 bg-cyan-400 z-[9999]"
+    style={{
+      scaleX: scrollYProgress,
+      transformOrigin: "0%",
+    }}
+  />
+    <div
+  className={`min-h-screen font-sans overflow-hidden transition-all duration-500 ${
+    darkMode
+      ? "bg-black text-white"
+      : "bg-white text-black"
+  }`}
+>
+      <nav
+  className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-all duration-500 ${
+    darkMode
+      ? "bg-black/70 border-white/10"
+      : "bg-white/80 border-black/10"
+  }`}
+>
+  <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+    
+    <h1 className="font-bold text-xl">
+      Ali's Portfolio
+    </h1>
+
+    <div className="flex gap-8 text-sm">
+      <a
+  href="#home"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Home
+</a>
+      <a
+  href="#about"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  About
+</a>
+      <a
+  href="#skills"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Skills
+</a>
+      <a
+  href="#experience"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Experience
+</a>
+      <a
+  href="#projects"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Projects
+</a>
+      <a
+  href="#contact"
+  className="relative hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+>
+  Contacts
+</a>
+
+      <button
+  onClick={() => setDarkMode(!darkMode)}
+  className="px-4 py-2 rounded-xl border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition"
+>
+  {darkMode ? "☀️ Light" : "🌙 Dark"}
+</button>
+
+    </div>
+
+  </div>
+</nav>
       {/* Hero Section */}
       <motion.section
+  id="home"
   initial={{ opacity: 0, y: 80 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 1 }}
@@ -91,9 +180,31 @@ export default function ModernCVWebsite() {
 >
         <div className="absolute inset-0 overflow-hidden">
 
-  <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse" />
+  <motion.div
+  animate={{
+    scale: [1, 1.15, 1],
+    opacity: [0.3, 0.5, 0.3],
+  }}
+  transition={{
+    duration: 8,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[180px]"
+/>
 
-  <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[140px] animate-pulse" />
+<motion.div
+  animate={{
+    scale: [1, 1.2, 1],
+    opacity: [0.2, 0.4, 0.2],
+  }}
+  transition={{
+    duration: 10,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute bottom-[-200px] right-[-150px] w-[550px] h-[550px] bg-cyan-400/20 rounded-full blur-[200px]"
+/>
 
   <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
 <div className="absolute top-[20%] left-[15%] w-3 h-3 bg-cyan-400 rounded-full animate-ping opacity-70" />
@@ -112,8 +223,11 @@ export default function ModernCVWebsite() {
             </p>
 
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8">
-              Hi, I’m <span className="text-white/70">Ali</span>
-            </h1>
+  Hi, I'm{" "}
+  <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-500 bg-clip-text text-transparent">
+    Ali
+  </span>
+</h1>
 
            <p className="text-lg text-white/70 leading-relaxed max-w-xl mb-10">
   <TypeAnimation
@@ -159,17 +273,29 @@ export default function ModernCVWebsite() {
     repeat: Infinity,
     ease: "easeInOut",
   }}
-  className="relative w-[340px] h-[420px] rounded-[40px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl backdrop-blur-xl"
+  className="
+relative
+w-[360px]
+h-[450px]
+rounded-[40px]
+overflow-hidden
+border border-white/20
+bg-gradient-to-br
+from-white/15
+to-white/5
+shadow-[0_0_60px_rgba(6,182,212,0.15)]
+backdrop-blur-2xl
+"
 >
               <img
                 src={profilePic}
                 alt="Profile"
-                className="w-full h-full object-cover transition duration-700 hover:scale-110"
+                className="w-full h-full object-cover transition duration-1000 hover:scale-115"
               />
 
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
                 <h2 className="text-2xl font-bold">Ali Mohamed Rashad</h2>
-                <p className="text-white/70">Electrical & ELV Engineer</p>
+                <p className={darkMode ? "text-white/70" : "text-black/70"}>Electrical & ELV Engineer</p>
               </div>
           </motion.div>
 
@@ -180,7 +306,15 @@ export default function ModernCVWebsite() {
 </motion.section>
 
       {/* About Section */}
-      <section className="px-8 md:px-20 py-24 border-b border-white/10">
+      <motion.section
+  id="about"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+
+  className="px-8 md:px-20 py-24 border-b border-white/10"
+>
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14">
           <div>
             <p className="uppercase tracking-[0.25em] text-sm text-white/50 mb-5">
@@ -213,10 +347,18 @@ Driven by precision, performance, and technical excellence, I am recognized for 
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Experience */}
-      <section className="px-8 md:px-20 py-24 border-b border-white/10">
+      <motion.section
+  id="experience"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="px-8 md:px-20 py-24 border-b border-white/10"
+>
+
         <div className="max-w-6xl mx-auto">
           <p className="uppercase tracking-[0.25em] text-sm text-white/50 mb-5">
             Experience
@@ -248,10 +390,54 @@ Driven by precision, performance, and technical excellence, I am recognized for 
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
+
+{/* Skills */}
+<motion.section
+  id="skills"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="px-8 md:px-20 py-24 border-b border-white/10"
+>
+  <div className="max-w-6xl mx-auto">
+    <p className="uppercase tracking-[0.25em] text-sm text-white/50 mb-5">
+      Skills
+    </p>
+
+    <h2 className="text-4xl md:text-5xl font-bold mb-12">
+  TECHNICAL EXPERTISE
+</h2>
+
+    <div className="space-y-6">
+      {technicalSkills.map((skill, index) => (
+        <div key={index}>
+          <div className="flex justify-between mb-2">
+            <span>{skill.name}</span>
+            <span>{skill.level}%</span>
+          </div>
+
+          <div className="w-full bg-white/10 rounded-full h-3">
+            <motion.div
+  initial={{ width: 0 }}
+  whileInView={{ width: `${skill.level}%` }}
+  transition={{ duration: 1.2 }}
+  viewport={{ once: true }}
+  className="bg-cyan-400 h-3 rounded-full"
+/>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</motion.section>
 
       {/* Projects */}
-      <section className="px-8 md:px-20 py-24 border-b border-white/10">
+      <section
+  id="projects"
+  className="px-8 md:px-20 py-24 border-b border-white/10"
+>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
             <div>
@@ -275,16 +461,32 @@ Driven by precision, performance, and technical excellence, I am recognized for 
              <motion.div
   key={index}
   whileHover={{
-    y: -10,
-    scale: 1.03,
+    y: -15,
+    scale: 1.05,
+    rotateX: 4,
   }}
   transition={{ duration: 0.4 }}
-  className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 h-[320px]"
+  style={{
+    transformStyle: "preserve-3d",
+  }}
+  className="
+group
+relative
+overflow-hidden
+rounded-[32px]
+border
+border-white/10
+bg-white/5
+h-[320px]
+hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]
+transition-all
+duration-500
+"
 >
                 <img
   src={project.image}
   alt={project.title}
-  className="w-full h-full object-cover"
+  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
 />
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition" />
 
@@ -293,8 +495,11 @@ Driven by precision, performance, and technical excellence, I am recognized for 
                     {project.category}
                   </p>
 
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <h3 className="text-2xl font-bold transition duration-300 group-hover:text-cyan-300">
+  {project.title}
+</h3>
                 </div>
+
               </motion.div>
             ))}
           </div>
@@ -338,7 +543,10 @@ Driven by precision, performance, and technical excellence, I am recognized for 
   </div>
 </motion.section>
       {/* Contact */}
-      <section className="px-8 md:px-20 py-24">
+      <section
+  id="contact"
+  className="px-8 md:px-20 py-24"
+>
         <div className="max-w-5xl mx-auto text-center">
           <p className="uppercase tracking-[0.25em] text-sm text-white/50 mb-5">
             Contact
@@ -370,7 +578,51 @@ Driven by precision, performance, and technical excellence, I am recognized for 
             </a>
           </div>
         </div>
-      </section>
+</section>
+
+{/* Footer */}
+<footer className="border-t border-white/10 py-8 mt-20">
+  <div className="max-w-7xl mx-auto px-8 md:px-20 flex flex-col md:flex-row justify-between items-center gap-4">
+
+    <div>
+      <h3 className="font-bold text-lg">Ali Mohamed Rashad</h3>
+      <p className="text-white/50 text-sm">
+        Electrical & ELV Engineer
+      </p>
     </div>
-  );
+
+    <div className="flex gap-6 text-sm text-white/70">
+      <a
+        href="mailto:itsraashad@gmail.com"
+        className="hover:text-cyan-400 transition"
+      >
+        Email
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/itsraashad"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-cyan-400 transition"
+      >
+        LinkedIn
+      </a>
+
+      <a
+        href="tel:+971505023439"
+        className="hover:text-cyan-400 transition"
+      >
+        Call
+      </a>
+    </div>
+
+  </div>
+
+  <div className="text-center text-white/40 text-sm mt-6">
+    © {new Date().getFullYear()} Ali Mohamed Rashad. All Rights Reserved.
+  </div>
+</footer>
+</div>
+</>
+);
 }
