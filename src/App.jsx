@@ -1,3 +1,4 @@
+import { TypeAnimation } from "react-type-animation";
 import expertiseImg from "./assets/ex.png";
 import westwoodImg from "./assets/westwood_by_imtiaz_1.jpg";
 import ellingtonImg from "./assets/ellington.png";
@@ -95,7 +96,13 @@ export default function ModernCVWebsite() {
   <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[140px] animate-pulse" />
 
   <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+<div className="absolute top-[20%] left-[15%] w-3 h-3 bg-cyan-400 rounded-full animate-ping opacity-70" />
 
+<div className="absolute top-[40%] right-[20%] w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" />
+
+<div className="absolute bottom-[25%] left-[30%] w-4 h-4 bg-white rounded-full animate-bounce opacity-40" />
+
+<div className="absolute top-[60%] right-[35%] w-2 h-2 bg-cyan-300 rounded-full animate-ping opacity-50" />
 </div>
 
         <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
@@ -108,10 +115,23 @@ export default function ModernCVWebsite() {
               Hi, I’m <span className="text-white/70">Ali</span>
             </h1>
 
-            <p className="text-lg text-white/70 leading-relaxed max-w-xl mb-10">
-              DM/DEWA-certified Electrical Engineer and SIRA-certified Security Systems Engineer with expertise in electrical and ELV systems integration.
-            </p>
-
+           <p className="text-lg text-white/70 leading-relaxed max-w-xl mb-10">
+  <TypeAnimation
+    sequence={[
+      "DM/DEWA-certified Electrical Engineer",
+      2000,
+      "ELV & Security Systems Specialist",
+      2000,
+      "Project Engineer for Smart Buildings",
+      2000,
+      "SIRA-certified Systems Engineer",
+      2000,
+    ]}
+    wrapper="span"
+    speed={50}
+    repeat={Infinity}
+  />
+</p>
             <div className="flex flex-wrap gap-4">
               <a
               href={myCV}
@@ -132,21 +152,32 @@ export default function ModernCVWebsite() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-[340px] h-[420px] rounded-[40px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl backdrop-blur-xl">
+            <motion.div
+  animate={{ y: [0, -15, 0] }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="relative w-[340px] h-[420px] rounded-[40px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl backdrop-blur-xl"
+>
               <img
                 src={profilePic}
                 alt="Profile"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition duration-700 hover:scale-110"
               />
 
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
                 <h2 className="text-2xl font-bold">Ali Mohamed Rashad</h2>
                 <p className="text-white/70">Electrical & ELV Engineer</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+          </motion.div>
+
+</div>
+
+</div>
+
+</motion.section>
 
       {/* About Section */}
       <section className="px-8 md:px-20 py-24 border-b border-white/10">
